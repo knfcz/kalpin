@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Lightweight API platform",
   "main": "server.js",
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "postinstall": "link-module-alias",
     "db:reload": "knex migrate:rollback && knex migrate:up && knex seed:run",
@@ -34,6 +36,9 @@
   "devDependencies": {
     "link-module-alias": "^1.2.0"
   },
-  "author": "",
-  "license": "ISC"
+  "_moduleAliases": {
+    "~models": "./src/database/models/",
+    "~actions": "./src/http/actions/",
+    "~utils": "./src/utils/"
+  }
 }
