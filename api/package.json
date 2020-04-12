@@ -1,0 +1,39 @@
+{
+  "name": "api-platform",
+  "version": "0.1.0",
+  "description": "Lightweight API platform",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "link-module-alias",
+    "db:reload": "knex migrate:rollback && knex migrate:up && knex seed:run",
+    "production": "cross-env NODE_ENV=production node server.js",
+    "development": "cross-env NODE_ENV=development node --inspect server.js",
+    "watch": "cross-env NODE_ENV=development nodemon --inspect server.js",
+    "prod": "npm run production",
+    "dev": "npm run development",
+    "lint": "eslint ./src/"
+  },
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.5.1",
+    "express": "^4.17.1",
+    "js-utils": "git+ssh://git@git.gunmetalblack.net:667/knfcz/js-utils.git",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.12",
+    "knex-on-duplicate-update": "^1.1.3",
+    "moment": "^2.24.0",
+    "mysql": "^2.18.1",
+    "node-api-modules": "git+ssh://git@git.gunmetalblack.net:667/knfcz/node-api-modules.git",
+    "nodemon": "^2.0.2",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
+  },
+  "devDependencies": {
+    "link-module-alias": "^1.2.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

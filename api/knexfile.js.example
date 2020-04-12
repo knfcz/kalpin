@@ -1,0 +1,16 @@
+require('dotenv').config();
+
+module.exports = {
+    client: 'mysql',
+    connection: {
+        host: 'localhost',
+        user: 'root',
+        password: '0000',
+        database: 'database',
+        charset: 'utf8'
+    },
+    migrations: {
+        directory: 'src/database/migrations',
+        tableName: '_migrations'
+    }
+};
