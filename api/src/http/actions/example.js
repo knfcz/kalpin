@@ -1,4 +1,6 @@
 const auth = require("../middlewares/auth");
+const Folder = require('~models/Folder');
+const Note = require('~models/Note');
 
 const example = register => {
     register("GET", "/", index);

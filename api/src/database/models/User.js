@@ -1,10 +1,14 @@
 const Model = require("./Model");
 const Hash = require("../../utils/Hash");
-const Role = require("./Role");
 
 class User extends Model {
     constructor() {
+        console.log('USER !!!!')
         super();
+    }
+
+    init() {
+        this.Role = require("./Role");
 
         this.columns = {
             id: { guarded: true },
@@ -20,7 +24,7 @@ class User extends Model {
 
         this.relations = {
             role: {
-                model: Role,
+                model: this.Role,
                 joinColumn: "role_id",
             },
         };

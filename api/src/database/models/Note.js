@@ -1,10 +1,9 @@
 const Model = require("./Model");
-const User = require("./User");
-const Folder = require("./Folder");
 
 class Note extends Model {
-    constructor() {
-        super();
+    init() {
+        this.User = require("./User");
+        this.Folder = require('./Folder');
 
         this.columns = {
             id: { guarded: true },
@@ -13,16 +12,21 @@ class Note extends Model {
             folder_id: {},
         };
 
+
         this.relations = {
             user: {
-                model: User,
+                model: this.User,
                 joinColumn: "user_id",
             },
             folder: {
-                model: Folder,
+                model: this.Folder,
                 joinColumn: "folder_id",
             },
         };
+    }
+
+    byFolder(folderId) {
+        return this.db().where('folder_id', folderId);
     }
 
     find(id, columnsToFetch, withRelations) {
@@ -36,6 +40,8 @@ class Note extends Model {
             ...this.getSelectableRelationColumns(this.relations.folder),
         ];
 
+
+        console.log(this.relations.folder.model)
         withRelations = withRelations || [this.relations.user, this.relations.folder];
 
         return super.findBy(
