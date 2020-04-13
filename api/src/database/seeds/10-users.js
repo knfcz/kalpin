@@ -4,6 +4,8 @@ const { mapBy } = require("js-utils/mapBy");
 
 const mapByName = mapBy("name");
 
+User.init();
+
 exports.seed = async knex => {
     await knex.raw("SET foreign_key_checks = 0");
     await knex(User.table).truncate();

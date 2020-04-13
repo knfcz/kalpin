@@ -1,6 +1,9 @@
 const Folder = require("~models/Folder");
 const Note = require("~models/Note");
 
+Folder.init();
+Note.init();
+
 exports.seed = async knex => {
     await knex.raw("SET foreign_key_checks = 0");
     await knex(Note.table).truncate();
