@@ -2147,7 +2147,7 @@ node-addon-api@^2.0.0:
 
 "node-api-modules@git+ssh://git@git.gunmetalblack.net:667/knfcz/node-api-modules.git":
   version "0.1.0"
-  resolved "git+ssh://git@git.gunmetalblack.net:667/knfcz/node-api-modules.git#65422ca150e0fefa6025f490ac8dc7f8007874f4"
+  resolved "git+ssh://git@git.gunmetalblack.net:667/knfcz/node-api-modules.git#cc672dda5c357b51695b1080bf55d48258a7457f"
   dependencies:
     eslint "^6.8.0"
     js-utils "git+ssh://git@git.solidom.net:FullHomeEnergy/js_utils.git"

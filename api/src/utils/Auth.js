@@ -118,7 +118,7 @@ const _makeAccessToken = payload => {
     delete payload.iat;
     delete payload.exp;
 
-    return JWT.make(payload, process.env.AUTH_TOKEN_TTL);
+    return JWT.make(payload, process.env.ACCESS_TOKEN_TTL);
 };
 
 /**
