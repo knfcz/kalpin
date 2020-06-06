@@ -3,7 +3,7 @@ const Model = require("./Model");
 class Note extends Model {
     init() {
         this.User = require("./User");
-        this.Folder = require('./Folder');
+        this.Folder = require("./Folder");
 
         this.columns = {
             id: { guarded: true },
@@ -11,7 +11,6 @@ class Note extends Model {
             user_id: {},
             folder_id: {},
         };
-
 
         this.relations = {
             user: {
@@ -26,23 +25,25 @@ class Note extends Model {
     }
 
     byFolder(folderId) {
-        return this.db().where('folder_id', folderId);
+        return this.db()
+            .where("folder_id", folderId);
     }
 
-    find(id, columnsToFetch, withRelations) {
-        return this.findBy("id", id, columnsToFetch, withRelations);
+    find(id ) {
+        return this.findBy("id", id);
     }
 
-    findBy(filterColumn, value, columnsToFetch, withRelations, where = {}) {
-        columnsToFetch = columnsToFetch || [
+    findBy(filterColumn, value, where = {}) {
+        const columnsToFetch = [
             ...this.getListableColumns().map(c => `${this.getTableName()}.${c}`),
             ...this.getSelectableRelationColumns(this.relations.user),
             ...this.getSelectableRelationColumns(this.relations.folder),
         ];
 
-
-        console.log(this.relations.folder.model)
-        withRelations = withRelations || [this.relations.user, this.relations.folder];
+        const withRelations =  [
+            this.relations.user,
+            this.relations.folder,
+        ];
 
         return super.findBy(
             filterColumn,

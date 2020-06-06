@@ -12,7 +12,9 @@ const authMiddleware = async ([req, ...rest]) => {
     const accessToken = authHeader.replace('Bearer ', '');
 
     try {
-        await JWT.verify(accessToken);
+        const payload = await JWT.verify(accessToken);
+
+        req['currentUser'] = payload;
 
         return ([req, ...rest]);
     } catch (e) {

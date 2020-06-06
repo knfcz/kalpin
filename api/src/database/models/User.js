@@ -3,7 +3,7 @@ const Hash = require("../../utils/Hash");
 
 class User extends Model {
     constructor() {
-        console.log('USER !!!!')
+        console.log('USER !!!!');
         super();
     }
 
